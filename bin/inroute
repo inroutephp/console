@@ -7,9 +7,15 @@ namespace inroutephp\console;
 
 use Symfony\Component\Console\Application;
 
-foreach ([__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php'] as $file) {
-    if (file_exists($file)) {
-        require_once $file;
+$paths = [
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/vendor/autoload.php',
+];
+
+foreach ($paths as $filename) {
+    if (file_exists($filename)) {
+        require_once $filename;
         break;
     }
 }
