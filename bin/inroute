@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types = 1);
+
+namespace inroutephp\console;
+
+use Symfony\Component\Console\Application;
+
+foreach ([__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php'] as $file) {
+    if (file_exists($file)) {
+        require_once $file;
+        break;
+    }
+}
+
+if (!class_exists(Application::CLASS)) {
+    fwrite(
+        STDERR,
+        "You need to set up project dependencies using 'composer install'\n"
+    );
+    die(1);
+}
+
+$version = trim(file_get_contents(__DIR__ . '/../version'));
+
+$app = new Application('Inroute', $version);
+
+$app->add(new BuildCommand());
+$app->add(new DebugCommand());
+
+$app->run();

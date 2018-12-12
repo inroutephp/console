@@ -1,0 +1,28 @@
+{
+    "name": "inroutephp/console",
+    "description": "Inroute compilation tool for the command line.",
+    "keywords": ["annotations", "web-router", "middleware", "psr-15", "openapi"],
+    "homepage": "https://github.com/inroutephp/console",
+    "type": "project",
+    "license": "Unlicense",
+    "authors": [
+        {
+            "name": "Hannes Forsgård",
+            "email": "hannes.forsgard@fripost.org"
+        }
+    ],
+    "bin": [
+        "bin/inroute"
+    ],
+    "autoload": {
+        "psr-4": {
+            "inroutephp\\console\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.1",
+        "inroutephp/inroute": "^1.0@beta",
+        "symfony/console": "^4.0",
+        "zircote/swagger-php": "^3.0"
+    }
+}
