@@ -35,6 +35,10 @@ the current working directory. A simple configuration file can look like:
 
 The following is a list of possible configuration values:
 
+### autoload
+
+Path to project autoloader. Defaults to `vendor/autoload.php`.
+
 ### container
 
 The classname of a compile time container. Only needed if compile time objects
