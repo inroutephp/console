@@ -5,9 +5,9 @@ declare(strict_types = 1);
 namespace inroutephp\console;
 
 use inroutephp\inroute\Compiler\CompilerFacade;
-use inroutephp\inroute\Settings\ArraySettings;
-use inroutephp\inroute\Settings\ManagedSettings;
-use inroutephp\inroute\Settings\SettingsInterface;
+use inroutephp\inroute\Compiler\Settings\ArraySettings;
+use inroutephp\inroute\Compiler\Settings\ManagedSettings;
+use inroutephp\inroute\Compiler\Settings\SettingsInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
