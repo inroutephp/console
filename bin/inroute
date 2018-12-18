@@ -28,9 +28,7 @@ if (!class_exists(Application::CLASS)) {
     die(1);
 }
 
-$version = trim(file_get_contents(__DIR__ . '/../version'));
-
-$app = new Application('Inroute', $version);
+$app = new Application('Inroute', \inroutephp\inroute\Package::VERSION);
 
 $app->add(new BuildCommand());
 $app->add(new DebugCommand());
