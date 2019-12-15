@@ -53,5 +53,7 @@ class DebugCommand extends BuildCommand
         }
 
         $table->render();
+
+        return 0;
     }
 }

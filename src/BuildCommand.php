@@ -172,5 +172,7 @@ class BuildCommand extends Command
         $output->writeln("Dumping router to '{$this->settings->getSetting('target-filename')}'");
 
         file_put_contents($this->settings->getSetting('target-filename'), "<?php $code");
+
+        return 0;
     }
 }
