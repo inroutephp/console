@@ -14,8 +14,8 @@ To execute a compiled router however the inroute runtime must be avaliable. That
 leaves us with a two step installation process:
 
 ```shell
-composer require inroutephp/inroute:^1.0@beta
-composer require --dev inroutephp/console:^1.0@beta
+composer require inroutephp/inroute
+composer require --dev inroutephp/console
 ```
 
 ## Build configuration
