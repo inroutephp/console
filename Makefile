@@ -24,6 +24,7 @@ build: $(TARGET)
 clean:
 	rm -f $(TARGET)
 	rm -rf vendor
+	rm -f phive.xml
 	rm -rf tools
 
 .PHONY: test
@@ -44,14 +45,11 @@ vendor/installed: composer.lock
 	$(COMPOSER_CMD) install --prefer-dist
 	touch $@
 
-.PHONY: tools
-tools: $(BOX_CMD) $(PHPUNIT_CMD) $(PHPCS_CMD)
-
 $(BOX_CMD):
 	$(PHIVE_CMD) install humbug/box:3 --force-accept-unsigned
 
 $(PHPUNIT_CMD):
-	$(PHIVE_CMD) install phpunit:8
+	$(PHIVE_CMD) install phpunit:8 --trust-gpg-keys 4AA394086372C20A
 
 $(PHPCS_CMD):
 	$(PHIVE_CMD) install phpcs
