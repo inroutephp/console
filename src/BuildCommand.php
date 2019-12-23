@@ -62,6 +62,12 @@ class BuildCommand extends Command
             InputOption::VALUE_REQUIRED,
             'psr-4 namespace prefix to use when scanning directory'
         ],
+        'ignore-annotations' => [
+            'ignore-annotation',
+            null,
+            InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
+            'Annotations to ignore during compilation'
+        ],
         'target-classname' => [
             'target-classname',
             null,

@@ -61,6 +61,10 @@ assumed to contain classes with this namespace prefix.
 
 Array of source classnames, use instead of or togheter with directory scanning.
 
+### ignore-annotations
+
+Array of annotations to ignore during compilation.
+
 ### route-factory
 
 Classname of route factory, default should normally be fine.
