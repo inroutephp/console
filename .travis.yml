@@ -8,7 +8,21 @@ php:
     - 7.2
 
 install:
-    - composer install
+    - make vendor/installed
+    - wget -O phive.phar https://phar.io/releases/phive.phar
+    - make tools PHIVE_CMD="php phive.phar"
 
 script:
-    - vendor/bin/phpunit
+    - make phpunit
+    - make inroute.phar
+
+deploy:
+    provider: releases
+    api_key:
+        secure: H55Ov1sI62mHqS/Aoa/CYw5Kh2WM13+pRsRoW7amuLxsy54geaBunI1HAuauTHDwl5ZC3gSznEoTl3NPIBvTiIeofegG7VYU9xnV81I/R4VLt3K3L26kTBBvBxVKsJB1G/5IhFHFv8UQ6FhU8djAPERBloab6I5QFYzCdAdThJ5gZo+WApybFxpi4a3MTFtH8dDLCCVm2n3sd9Ul0CpghDAE0eo9BWub7G/FbSWkCCfQjd1cvsaMaX9XzOuIMCAjEu8ZYkjrlMOzqBHDcTg/WkVXRcm5r1M8AM+itDjnOHREE5DefuBI2V4xRPC3B39uUUaVSkTYDEvPK0fL3MSW3aBQhdrwW+Q/a8XZmNjmIKF8IZUrlF08oU0ym6XtMzAxIny5Mj4k614SCDhuWLk5EXMwEtYpbjJxMCjjqN/l0AH5Ega1ua4sICZ1V4ZNhm2vHNJCw0c95FTFbPlGmGrgLT3znJseePd5G47MrLQvhtWA8HsTEAay9xvfzn5JPmPtcO6RY+bB/rpI8K08mwYdZ//CuaN+ZT/20CSgsW47z0nVrzjGnqqXHCmO8WN5ZJn4sMX8gjPNQAkcF+DzrBKDoBXRBkVXn24+mG0QFV53MuT3FCRFPeyIbAPZ86AT02U6nc+mhIZZVHs4SC6+4PpWys1fLn1DumUnG2zh9bVeRrI=
+    file: inroute.phar
+    skip_cleanup: true
+    on:
+        tags: true
+        repo: inroutephp/console
+        condition: ${TRAVIS_PHP_VERSION:0:3} == "7.2"
